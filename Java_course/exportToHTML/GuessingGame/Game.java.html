@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Game.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Game.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">GuessingGame</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.Random</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Game {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String args[]) {</span>
+    <span class="s2">/* De computer kiest een getal tussen de 1 en 99 inclusief. 
+    De speler mag 3x raden. 
+    De computer geeft elke keer, na de eerste twee x raden, als het getal nog niet geraden is, een hint: is het getal hoger of lager? 
+    Als de speler bij de eerste, tweede of derde keer het getal raadt, heeft de speler gewonnen. 
+     */</span>
+
+        <span class="s2">//kies een willekeurig getal</span>
+
+        <span class="s1">Random rand = </span><span class="s0">new </span><span class="s1">Random()</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">number = rand.nextInt(</span><span class="s3">98</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">numberDef = number + </span><span class="s3">1</span><span class="s0">;</span>
+
+        <span class="s2">// System.out.println(numberDef);</span>
+        <span class="s2">// System.out.println(number);</span>
+
+        <span class="s2">//speler raadt</span>
+
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Ik heb een getal van 1 t/m 99 gekozen. Wat denk je dat het is?&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">poging1 = scanner.nextInt()</span><span class="s0">;</span>
+
+        <span class="s2">//sequence {</span>
+        <span class="s2">//{goed:</span>
+        <span class="s2">// als de speler goed geraden heeft: output &quot;Gefeliciteerd, dat klopt.&quot;}</span>
+
+        <span class="s0">if </span><span class="s1">(poging1 == numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Gefeliciteerd, dat klopt!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging1 &gt;= </span><span class="s3">100 </span><span class="s1">|| poging1 &lt;= </span><span class="s3">0</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Het moet een geheel getal zijn tussen de 1 en 99, grapjas.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging1 &lt; numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Sorry, dat klopt niet, het getal is hoger.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging1 &gt; numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Sorry, dat klopt niet, het getal is lager.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Huh? (Het moet een geheel getal zijn tussen de 1 en 99).&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                   <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Probeer het nog eens? Je hebt nog 2 pogingen.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">poging2 = scanner.nextInt()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(poging2 == numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Gefeliciteerd, dat klopt!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging2 &gt;= </span><span class="s3">100 </span><span class="s1">|| poging2 &lt;= </span><span class="s3">0</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Het moet een geheel getal zijn tussen de 1 en 99, grapjas.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging2 &lt; numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Sorry, dat klopt niet, het getal is hoger.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(poging2 &gt; numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Sorry, dat klopt niet, het getal is lager.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Huh? (Het moet een geheel getal zijn tussen de 1 en 99).&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Probeer het nog eens? Je hebt nog 1 poging.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">poging3 = scanner.nextInt()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(poging3 == numberDef) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Gefeliciteerd, dat klopt!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Sorry, dat klopt niet, het getal was &quot; </span><span class="s1">+ numberDef)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s2">//{fout:</span>
+        <span class="s2">//als de speler fout geraden heeft: output &quot;Sorry, dat is het niet.&quot;</span>
+        <span class="s2">//als de speler fout geraden heeft: is het getal hoger of lager dan de poging?</span>
+        <span class="s2">//output: &quot;Het getal is hoger/lager&quot;}</span>
+        <span class="s2">//}</span>
+        <span class="s2">//speler raadt</span>
+        <span class="s2">//sequence</span>
+        <span class="s2">//speler raadt</span>
+        <span class="s2">//als de speler goed geraden heeft: output &quot;Gefeliciteerd, dat klopt.&quot;</span>
+        <span class="s2">//als de speler fout geraden heeft: &quot;Sorry, dat is het niet.&quot;</span>
+        <span class="s2">//output: &quot;Het getal was &lt;getal&gt;&quot;}</span>
+
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
